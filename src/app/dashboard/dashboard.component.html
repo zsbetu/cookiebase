@@ -1,0 +1,52 @@
+<div class="account-container">
+  <div class="profile-section">
+    <div class="profile-pic-container">
+        <mat-icon class="default-avatar">account_circle</mat-icon>
+    </div>
+    <h2>Hello, {{ user?.displayName || 'User' }}!</h2>
+    <button mat-raised-button color="primary">Edit Profile</button>
+
+    <h3>Your Recipes</h3>
+    
+    <div class="recipe-scroll">
+        <mat-card *ngFor="let recipe of userRecipes" class="recipe-card">
+            <mat-card-title>{{ recipe.title }}</mat-card-title>
+            <mat-card-content>
+                <p>{{ recipe.description }}</p>
+                <div *ngIf="recipe.ingredients?.length">
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+                    </ul>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button >Edit</button>
+                <button mat-button color="warn" (click)="deleteRecipe(recipe.id)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+
+        <div *ngIf="userRecipes.length === 0" class="no-recipes">
+            <p>You haven't created any recipes yet.</p>
+            <button mat-raised-button color="primary" routerLink="/recipes/new">
+                Create Your First Recipe
+            </button>
+        </div>
+    </div>
+  </div>
+
+  <div class="actions-section">
+    <button mat-raised-button color="warn" (click)="logout()">Log Out</button>
+
+    <div class="delete-account">
+      <h4>Delete Account</h4>
+        <button mat-raised-button 
+            color="warn" 
+            (click)="confirmDelete()"
+            aria-label="Delete account button">
+        <mat-icon>delete_forever</mat-icon>
+        Delete Account
+        </button>
+    </div>
+  </div>
+</div>

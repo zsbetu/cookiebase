@@ -1,1 +1,16 @@
-<router-outlet></router-outlet><h1></h1>
+<mat-toolbar color="primary" class="toolbar">
+    <span class="logo" routerLink=''>🍪 cookiebase</span>
+
+    <span class="spacer"></span>
+
+    <button mat-button routerLink="/browse">Browse</button>
+
+  <ng-container *ngIf="user$ | async as user; else showLogin">
+    <button mat-button routerLink="/dashboard">My Recipes</button>
+  </ng-container>
+  <ng-template #showLogin>
+    <button mat-button routerLink="/login">Login</button>
+  </ng-template>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

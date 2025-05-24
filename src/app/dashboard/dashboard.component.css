@@ -1,0 +1,60 @@
+.account-container {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+
+.profile-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.profile-pic-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+.actions-section {
+  min-width: 200px;
+}
+
+.recipe-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-top: 10px;
+}
+
+.recipe-card {
+  min-width: 200px;
+  color: #f1f1f1;
+  text-align: center;
+}
+
+.no-recipes {
+  text-align: center;
+  padding: 2rem;
+  color: rgba(0,0,0,0.6);
+}
+
+.no-recipes button {
+  margin-top: 1rem;
+}
+
+.default-avatar {
+  font-size: 120px !important;
+  width: 120px !important;
+  height: 120px !important;
+  color: #757575;
+  line-height: 1;
+  user-select: none;
+}
